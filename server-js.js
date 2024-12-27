@@ -8,7 +8,7 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 const uri="mongodb+srv://hsainiamariem:azerty1234@cluster1.4gxin.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1";
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
