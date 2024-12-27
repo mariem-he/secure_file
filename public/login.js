@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Fetch user data from server
-            const response = await fetch(`/api/user/${email}`);
+            const response = await fetch(`/auth/user/${email}`);
             
             if (!response.ok) {
                 alert('User not found');
