@@ -32,7 +32,7 @@ class EmailService {
             throw new Error('Email and verification token are required');
         }
 
-        const verificationLink = `https://yourwebsite.com/verify-email?token=${verificationToken}`;
+        const verificationLink = `${process.env.APP_URL}/verify-email?token=${verificationToken}`;
 
         const mailOptions = {
             from: `"Secure File Encryption" <${process.env.EMAIL_USER}>`,
