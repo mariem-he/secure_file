@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Encryption Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">SecureFile</div>
+            <button class="logout-btn" id="logoutButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Logout
+            </button>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2 class="text-2xl font-semibold mb-4">File Encryption</h2>
+                <form id="encryptForm">
+                    <div class="form-group">
+                        <label class="form-label">Select File</label>
+                        <input 
+                            type="file" 
+                            id="fileToEncrypt" 
+                            class="form-input"
+                            accept=".pdf,.png,.jpg,.jpeg,.txt"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Encryption Method</label>
+                        <select 
+                            id="encryptionMethod" 
+                            class="form-input"
+                        >
+                            <option value="vigenere">Vigenère Cipher</option>
+                            <option value="rsa">RSA Cipher</option>
+                            <option value="affine">Affine Cipher</option>
+                            <option value="caesar">Caesar Cipher</option>
+                        </select>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        class="btn btn-encrypt"
+                    >
+                        Encrypt File
+                    </button>
+                </form>
+
+                <div id="encryptResult" class="result-box result-encrypt hidden">
+                    <h3 class="font-semibold mb-2">Encryption Results:</h3>
+                    <p>Decryption Key: <span id="decryptionKey" class="font-mono bg-green-100 p-1 rounded"></span></p>
+                    <a 
+                        href="#" 
+                        id="downloadEncryptedFile" 
+                        class="download-link mt-2 inline-block"
+                    >
+                        Download Encrypted File
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="text-2xl font-semibold mb-4">File Decryption</h2>
+                <form id="decryptForm">
+                    <div class="form-group">
+                        <label class="form-label">Select Encrypted File</label>
+                        <input 
+                            type="file" 
+                            id="fileToDecrypt" 
+                            class="form-input"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Decryption Key</label>
+                        <input 
+                            type="text" 
+                            id="decryptionKeyInput" 
+                            placeholder="Enter decryption key"
+                            class="form-input"
+                        >
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        class="btn btn-decrypt"
+                    >
+                        Decrypt File
+                    </button>
+                </form>
+
+                <div id="decryptResult" class="result-box result-decrypt hidden">
+                    <h3 class="font-semibold mb-2">Decryption Results:</h3>
+                    <a 
+                        href="#" 
+                        id="downloadDecryptedFile" 
+                        class="download-link"
+                    >
+                        Download Decrypted File
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script src="enc.js"></script>
+    <script src="dashboard-js.js"></script>
+    <script src="theme-js.js"></script>
+</body>
+</html>
